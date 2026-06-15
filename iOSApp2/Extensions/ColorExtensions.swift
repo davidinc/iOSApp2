@@ -5,14 +5,15 @@
 //  Created by Dawit Chernet on 2026-06-05.
 //
 
+
 import SwiftUI
 
-struct ColorExtensions: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension Color {
+    static let cardColors: [Color] = [
+        .red, .blue, .green, .yellow, .orange, .purple, .pink, .teal, .mint
+    ]
+    
+    static func random() -> Color {
+        cardColors.randomElement() ?? .black
     }
-}
-
-#Preview {
-    ColorExtensions()
 }

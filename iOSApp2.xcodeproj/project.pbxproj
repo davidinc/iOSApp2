@@ -45,6 +45,11 @@
 			path = iOSApp2UITests;
 			sourceTree = "<group>";
 		};
+		A2ADB2322FD3209C00878B7F /* Hunters */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Hunters;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +84,7 @@
 				A2ADB1F52FD30B7200878B7F /* iOSApp2Tests */,
 				A2ADB1FF2FD30B7200878B7F /* iOSApp2UITests */,
 				A2ADB1E42FD30B7100878B7F /* Products */,
+				A2ADB2322FD3209C00878B7F /* Hunters */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +115,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				A2ADB1E52FD30B7100878B7F /* iOSApp2 */,
+				A2ADB2322FD3209C00878B7F /* Hunters */,
 			);
 			name = iOSApp2;
 			packageProductDependencies = (

@@ -1,24 +1,27 @@
 //
-//  ImagePicker.swift
+//  LiveCameraView.swift
 //  iOSApp2
 //
-//  Created by Dawit Chernet on 2026-06-05.
+//  Created by Dawit Chernet on 2026-06-15.
 //
 
-// MARK: - COMMERCIAL UPGRADE PLAN (Phase 3)
-// TODO: Phase 3 - Deprecate UIImagePickerController completely.
-// TODO: Phase 3 - Build a custom `AVCaptureSession` view natively. This ensures users must take a live photo at the business rather than picking an old photo from their camera roll.
 
 import SwiftUI
 
-struct ImagePicker: UIViewControllerRepresentable {
+struct LiveCameraView: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Environment(\.presentationMode) var presentationMode
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
-        picker.sourceType = .photoLibrary
+        
+        #if targetEnvironment(simulator)
+        picker.sourceType = .photoLibrary 
+        #else
+        picker.sourceType = .camera 
+        #endif
+        
         return picker
     }
     
@@ -26,8 +29,8 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(self) }
     
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        let parent: ImagePicker
-        init(_ parent: ImagePicker) { self.parent = parent }
+        let parent: LiveCameraView
+        init(_ parent: LiveCameraView) { self.parent = parent }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let uiImage = info[.originalImage] as? UIImage {
@@ -35,7 +38,5 @@ struct ImagePicker: UIViewControllerRepresentable {
             }
             parent.presentationMode.wrappedValue.dismiss()
         }
-        
-        /*Use SwiftUI's ImageRenderer (available in iOS 16+) to capture the entire ZStack (the photo plus all the dragged/resized stickers) and convert it into a single, flattened UIImage.*/
     }
 }

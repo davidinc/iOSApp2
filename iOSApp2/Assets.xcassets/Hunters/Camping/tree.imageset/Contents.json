@@ -1,8 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "tree@3x.png",
+      "filename" : "tree.png",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "tree 1.png",
+      "idiom" : "universal",
+      "width-class" : "compact"
     }
   ],
   "info" : {

@@ -1,8 +1,13 @@
 {
   "images" : [
     {
-      "filename" : "images.jpg",
+      "filename" : "fire.jpg",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "fire 1.jpg",
+      "idiom" : "universal",
+      "width-class" : "compact"
     }
   ],
   "info" : {
